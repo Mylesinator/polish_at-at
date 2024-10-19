@@ -4,7 +4,7 @@
 }
 
 body {
-
+    overflow: hidden;
 }
 
 torso {
@@ -27,28 +27,44 @@ torso {
     height: 10%;
 }
 
-upper-leg {
-    /* position: relative; */
+joint {
     display: flex;
+    justify-content: center;
+    /* animation: spin 10s linear infinite; */
+}
+
+upper-leg {
+    display: flex;
+    align-items: end;
+    justify-content: center;
     background-color: gray;
     outline: 0.1rem solid black;
     width: 2rem;
     height: 7rem;
-    transform: rotate(-10deg);
-    transform-origin: 50% 0%;
-    animation: swing 10s linear infinite;
 }
 
 lower-leg {
     position: absolute;
-    top: 100%;
+    /* top: 100%; */
     display: flex;
+    align-items: end;
+    justify-content: center;
     background-color: pink;
     outline: 0.1rem solid black;
     width: 2rem;
     height: 7rem;
-    transform-origin: 50% 0%;
-    animation: lower-swing 10s linear infinite;
+}
+
+.target {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-color: red;
+    border-radius: 100%;
+    width: 2rem;
+    height: 2rem;
+    transform: translate(-50%, -50%);
+    z-index: 100;
 }
 
 .at-at {
@@ -57,44 +73,11 @@ lower-leg {
     align-items: center;
 }
 
-@keyframes swing {
+@keyframes spin {
     0% {
-        transform: rotate(-10deg);
-    }
-    25% {
-        transform: rotate(0deg);
-    }
-    50% {
-        transform: rotate(30deg);
-    }
-    75% {
-        transform: rotate(30deg);
-    }
-    100% {
-        transform: rotate(-10deg);
-    }
-    100% {
-        transform: rotate(-10deg);
-    }
-}
-
-@keyframes lower-swing {
-    14% {
-        transform: rotate(0deg);
-    }
-    25% {
-        transform: rotate(0deg);
-    }
-    50% {
-        transform: rotate(-30deg);
-    }
-    75% {
-        transform: rotate(-30deg);
-    }
-    100% {
         transform: rotate(0deg);
     }
     100% {
-        transform: rotate(0deg);
+        transform: rotate(360deg);
     }
 }

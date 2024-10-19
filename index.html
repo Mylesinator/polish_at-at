@@ -5,20 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
 </head>
 <body>
     <h1>Hello</h1>
-
+    <div class="target" id="target"></div>
     <div class="at-at">
         <torso>
             <div class="torso-joint front">
-                <upper-leg>
-                    <lower-leg></lower-leg>
-                </upper-leg>
-                <upper-leg style="animation-delay: 7.5s;">
-                    <lower-leg style="animation-delay: 7.5s;"></lower-leg>
-                </upper-leg>
+                <joint id="joint1">
+                    <upper-leg>
+                        <joint id="joint2">
+                            <lower-leg>
+                                <joint id="joint3">
+                                    <!-- Foot or something -->
+                                </joint>
+                            </lower-leg>
+                        </joint>
+                    </upper-leg>
+                </joint>
+                <joint>
+                    <upper-leg>
+                        <joint>
+                            <lower-leg>
+                                <joint>
+                                    <lower-leg>
+                                        <joint>
+                                            <lower-leg>
+                                                <joint>
+                                                    <lower-leg>
+                                                        
+                                                    </lower-leg>
+                                                </joint>
+                                            </lower-leg>
+                                        </joint>
+                                    </lower-leg>
+                                </joint>
+                            </lower-leg>
+                        </joint>
+                    </upper-leg>
+                </joint>
             </div>
             <!-- <div class="torso-joint back">
                 <upper-leg style="animation-direction: reverse;">

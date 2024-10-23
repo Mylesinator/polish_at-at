@@ -10,6 +10,7 @@ const joint9 = document.getElementById("joint9");
 const joint10 = document.getElementById("joint10");
 const joint11 = document.getElementById("joint11");
 const joint12 = document.getElementById("joint12");
+const ATAT = document.getElementById("at-at");
 
 
 const point = document.getElementById("target");
@@ -44,7 +45,7 @@ function inverseKinematics(P0, P1, P2, target) {
     
     const angleP0 = (radiansToDegrees(Math.atan(rate))*(y/Math.abs(y)))-(angleP1/2);
 
-    const angleP2 = -angleP0-(angleP1/2);
+    const angleP2 = -angleP0-(angleP1);
 
     return {angleP0, angleP1, angleP2}
 }
@@ -54,9 +55,10 @@ function clamp_f(func) {
 }
 
 const step_height = 0.1;
-const crouch_factor = 0;
+const crouch_factor = 0.01;
 const stride_factor = 0.2;
-const speed = 0.5;
+const speed = 5;
+const ATAT_height = ATAT.clientHeight;
 function loop() {
     let j1p = getPivotOrigin(joint1);
     let j2p = getPivotOrigin(joint2);
@@ -77,7 +79,15 @@ function loop() {
     let f_x = (t) => { return ((leg_length*stride_factor)*Math.sin(t))};
     let f_y = (t) => { return -clamp_f((leg_length*step_height)*Math.cos(t))+leg_length*(1-crouch_factor)};
     let target1 = {x: f_x(t), y: f_y(t)};
-    let target2 = {x: f_x(t+(Math.PI)), y: f_y(t+(Math.PI))};
+    let target2 = {x: f_x(t+Math.PI), y: f_y(t+Math.PI)};
+
+    let height_array = [j1p, j2p, j3p, j4p, j5p, j6p, j7p, j8p, j9p, j10p, j11p, j12p];
+    height_array.sort((a,b) => b.y-a.y);
+    console.log(height_array[0],height_array[height_array.length-1]);
+
+    let top = leg_length+(height_array[height_array.length-1].y-height_array[0].y)
+    ATAT.style.marginTop = `${top}px`;
+    ATAT.style.marginBottom = `${leg_length-top}px`;
 
     const leg1 = inverseKinematics(j1p, j2p, j3p, target1);
     const leg2 = inverseKinematics(j4p, j5p, j6p, target2);

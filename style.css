@@ -18,18 +18,31 @@ torso {
     position: relative;
     display: flex;
     justify-content: center;
-    outline: 0.1rem solid black;
-    width: 20rem;
+    /* outline: 0.1rem solid black; */
+    width: 25rem;
     height: 10rem;
+}
+
+img {
+    z-index: 10000;
+}
+
+.joint {
+    position: absolute;
+    transform: translateY(1rem);
+}
+
+.torso-img {
+    margin-right: 7rem;
 }
 
 .torso-joint {
     position: absolute;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-self: end;
-    background-color: aqua;
-    outline: 0.1rem solid black;
+    /* background-color: aqua; */
+    /* outline: 0.1rem solid black; */
     width: 80%;
     height: 20%;
 }
@@ -44,13 +57,15 @@ upper-leg {
     display: flex;
     align-items: end;
     justify-content: center;
-    background-color: gray;
-    outline: 0.1rem solid black;
+    /* background-color: gray; */
+    /* outline: 0.1rem solid black; */
     width: 2.25rem;
     height: 10rem;
     border-radius: 10rem;
     margin-bottom: -1rem;
-    padding-bottom: 1rem;
+    margin-left: 3.5rem;
+    margin-right: 3.8rem;
+    /* padding-bottom: 1rem; */
 }
 
 lower-leg {

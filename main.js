@@ -57,7 +57,7 @@ function clamp_f(func) {
 const step_height = 0.1;
 const crouch_factor = 0.01;
 const stride_factor = 0.2;
-const speed = 5;
+const speed = 1.5;
 const ATAT_height = ATAT.clientHeight;
 function loop() {
     let j1p = getPivotOrigin(joint1);

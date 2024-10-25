@@ -29,6 +29,7 @@ img {
 
 .joint {
     position: absolute;
+    z-index: 10001;
     transform: translateY(1rem);
 }
 
@@ -53,6 +54,11 @@ joint {
     /* animation: spin 10s linear infinite; */
 }
 
+#joint2, #joint5, #joint8, #joint11 {
+    position: absolute;
+    left: 4.8rem;
+}
+
 upper-leg {
     display: flex;
     align-items: end;
@@ -73,8 +79,8 @@ lower-leg {
     display: flex;
     align-items: end;
     justify-content: center;
-    background-color: darkgray;
-    outline: 0.1rem solid black;
+    /* background-color: darkgray; */
+    /* outline: 0.1rem solid black; */
     width: 2.25rem;
     height: 5rem;
     margin-top: -1rem;
@@ -84,14 +90,17 @@ lower-leg {
     padding-bottom: 1rem;
 }
 
-foot {
+.foot {
     position: absolute;
-    background-color: gray;
-    outline: 0.1rem solid black;
-    width: 4rem;
-    height: 2rem;
+    /* background-color: gray; */
+    /* outline: 0.1rem solid black; */
     margin-top: -0.9rem;
     /* display: none; */
+}
+
+#joint3, #joint6, #joint9, #joint12 {
+    position: absolute;
+    z-index: 10002;
 }
 
 #at-at {

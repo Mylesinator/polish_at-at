@@ -11,6 +11,7 @@ const joint10 = document.getElementById("joint10");
 const joint11 = document.getElementById("joint11");
 const joint12 = document.getElementById("joint12");
 const ATAT = document.getElementById("at-at");
+const example_foot = document.querySelectorAll(".foot")[0];
 
 
 const point = document.getElementById("target");
@@ -83,11 +84,11 @@ function loop() {
 
     let height_array = [j1p, j2p, j3p, j4p, j5p, j6p, j7p, j8p, j9p, j10p, j11p, j12p];
     height_array.sort((a,b) => b.y-a.y);
-    console.log(height_array[0],height_array[height_array.length-1]);
-
+    // console.log(height_array[0],height_array[height_array.length-1]);
+    const foot = example_foot.getBoundingClientRect();
     let top = leg_length+(height_array[height_array.length-1].y-height_array[0].y)
-    ATAT.style.marginTop = `${top}px`;
-    ATAT.style.marginBottom = `${leg_length-top}px`;
+    // ATAT.style.marginTop = `${top}px`;
+    ATAT.style.marginBottom = `${leg_length+(foot.height)-top}px`;
 
     const leg1 = inverseKinematics(j1p, j2p, j3p, target1);
     const leg2 = inverseKinematics(j4p, j5p, j6p, target2);
